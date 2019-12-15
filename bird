@@ -1,0 +1,22 @@
+import sys
+from itertools import permutations
+
+if __name__ == '__main__':
+  word = str(sys.argv[1])
+  print('running...')
+  results = []
+  words = []
+  f = open("word.txt", "r")
+  for x in f:
+    words.append(str(x).strip())
+  for p in list(permutations(word)):
+    perm = ''.join(p)
+
+    for w in words:
+      if perm == w:
+        print('found...')
+        results.append(perm)
+  word = sys.argv[1]
+  f.close()
+  print('done...')
+  print(results)
